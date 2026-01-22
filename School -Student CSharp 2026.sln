@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jagged arrays", "Jagged arr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "use class Array", "use class Array\use class Array.csproj", "{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String demo", "String demo\String demo.csproj", "{88C07261-141E-4563-8475-A0BE99024CB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringBuilder demo", "StringBuilder demo\StringBuilder demo.csproj", "{2E7ECEAE-6D5C-44D7-BBC5-4370AF87FE7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C07261-141E-4563-8475-A0BE99024CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C07261-141E-4563-8475-A0BE99024CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C07261-141E-4563-8475-A0BE99024CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C07261-141E-4563-8475-A0BE99024CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7ECEAE-6D5C-44D7-BBC5-4370AF87FE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7ECEAE-6D5C-44D7-BBC5-4370AF87FE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7ECEAE-6D5C-44D7-BBC5-4370AF87FE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7ECEAE-6D5C-44D7-BBC5-4370AF87FE7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
