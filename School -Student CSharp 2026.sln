@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36811.4 d17.14
+VisualStudioVersion = 17.14.36811.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multidim array", "School -Student CSharp 2026\Multidim array.csproj", "{78981587-DC13-4876-840E-3CD17B8274B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuples", "Tuples\Tuples.csproj", "{C0D3F918-D148-4D8B-B4F4-DACDCEB85556}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jagged arrays", "Jagged arrays\Jagged arrays.csproj", "{6E10B00C-7C7C-4B28-9E7F-D98D0936A450}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "use class Array", "use class Array\use class Array.csproj", "{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6E10B00C-7C7C-4B28-9E7F-D98D0936A450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E10B00C-7C7C-4B28-9E7F-D98D0936A450}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E10B00C-7C7C-4B28-9E7F-D98D0936A450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F35D39F-A46A-41B3-8C96-0FDD852A4C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

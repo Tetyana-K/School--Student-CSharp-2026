@@ -41,12 +41,12 @@ void MaxMin(int[] numbers, out int max, out int min)
 (int max, int min) MaxMin2(int[] numbers) // ?
 //(int, int ) MaxMin2(int[] numbers) // ?
 {
-    int max = numbers[0];
-    int min = numbers[0];
+    int max1 = numbers[0];
+    int min1 = numbers[0];
     foreach (var number in numbers)
     {
-        if (number > max) max = number;
-        if (number < min) min = number;
+        if (number > max1) max1 = number;
+        if (number < min1) min1 = number;
     }
-    return (max, min); // функція повертає кортеж із двох елементів
+    return (max1, min1); // функція повертає кортеж із двох елементів
 }
