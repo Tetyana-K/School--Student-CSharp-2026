@@ -30,6 +30,7 @@ Console.WriteLine($"\nAfter replace 'a' to '@' =  {str1.Replace('a', '@')}"); //
 Console.WriteLine($"\nDelete start segment of string =  {str1.Remove(0, 5)}");
 
 Console.WriteLine($"\nInsert substring into string =  {str1.Insert(0, "Hello! ")}");
+//str1 = str1.Insert(0, "Hello! "); // збереження результату вставки у str1
 Console.WriteLine($"\nSubstring from index 10, length 15 =  {str1.Substring(9, 16)}");
 Console.WriteLine($"\nSubstring from index 10 to end of string =  {str1.Substring(9)}");
 
