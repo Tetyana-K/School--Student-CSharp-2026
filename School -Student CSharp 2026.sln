@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Classes intro", "02-Clas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class Ctors Props", "Class Ctors Props\Class Ctors Props.csproj", "{9400FB91-BAF4-4B6A-AE5E-1D5DFEF2721D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Except with when", "Except with when\Except with when.csproj", "{6178E3EE-81FC-49B9-8E02-413316587C75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception intro", "Exception intro\Exception intro.csproj", "{C23E4A43-A0E5-444E-956E-945071EC373F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,14 @@ Global
 		{9400FB91-BAF4-4B6A-AE5E-1D5DFEF2721D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9400FB91-BAF4-4B6A-AE5E-1D5DFEF2721D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9400FB91-BAF4-4B6A-AE5E-1D5DFEF2721D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6178E3EE-81FC-49B9-8E02-413316587C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6178E3EE-81FC-49B9-8E02-413316587C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6178E3EE-81FC-49B9-8E02-413316587C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6178E3EE-81FC-49B9-8E02-413316587C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23E4A43-A0E5-444E-956E-945071EC373F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23E4A43-A0E5-444E-956E-945071EC373F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23E4A43-A0E5-444E-956E-945071EC373F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23E4A43-A0E5-444E-956E-945071EC373F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
