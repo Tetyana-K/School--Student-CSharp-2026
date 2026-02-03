@@ -15,10 +15,10 @@ namespace Class_Ctors_Props
             brand = "No brand"; // ініціалізація поля brand значенням "No brand"
             year = minYear; // ініціалізація поля year поточним роком
         }
-        public Car(string brand, int year) // конструктор з 1-м параметром для ініціалізації марки автомобіля
+        public Car(string brand, int year = 2000) // конструктор з 1-м параметром для ініціалізації марки автомобіля
         {
             this.brand = brand; // використання this для посилання на поточний об'єкт
-            this.year = year; // -33
+          //  this.year = year; // -33
             Year = year; // використання властивості Year для встановлення значення року випуску автомобіля з перевіркою
         }
         public void SetBrand(string brand) // метод для встановлення значення марки автомобіля
@@ -34,9 +34,11 @@ namespace Class_Ctors_Props
             return brand; // повернення значення поля brand
         }
         // зробимо для поля year властивість Year з методами доступу get та set
-        public int Year
+        public int Year // full property - повна властивість, Поле + get set
         {
-            get { return year; }
+            //get { return year; }
+            get => year; // скорочений запис для get
+                         // set => year = (value >= minYear && value <= DateTime.Today.Year) ? value : minYear;
             set
             {
                 if (value >= minYear && value <= DateTime.Today.Year)

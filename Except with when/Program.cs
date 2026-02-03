@@ -21,21 +21,22 @@ class Program
         {
             Process();
         }
-        catch (Exception ex) when (Log(ex))
+        catch (Exception ex) when (Log(ex)) // блок catch виконається лише якщо Log(ex) поверне true
         {
-            throw;
+            Console.WriteLine("Catch in DoWork()");
+            throw; // повторно кидаємо виняток для обробки у вищому рівні (Main)
         }
     }
 
     static void Process()
     {
         int x = 0;
-        int y = 10 / x; // DivideByZeroException
+        int y = 10 / x; //тут летить виняток DivideByZeroException
     }
 
     static bool Log(Exception ex)
     {
-        Console.Write(">>> Логування: ");
+        Console.Write(">>> Логування: летить виняток ");
         Console.WriteLine(ex.GetType().Name);
         return false; // це важливо, щоб блок catch не виконувався
     }
