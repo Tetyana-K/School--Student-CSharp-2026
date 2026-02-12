@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("_____________Multidimensional arrays_____");
 
-
 int[,] matrix = new int[3, 4] // 3 рядки, 4 стовпці, двовимірний прямокутник масив
 {
     {1, 2, 3, 4 },

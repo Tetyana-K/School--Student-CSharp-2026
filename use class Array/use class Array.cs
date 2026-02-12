@@ -6,7 +6,7 @@ int[] numbers = new int [size];
 FillRand(numbers);
 PrintArray(numbers);
 
-int[] copyNumbers = new int[numbers.Length + 2]; // створення масиву більшого розміру
+int[] copyNumbers = new int[numbers.Length + 2]; // створення масиву більшого розміру 0 0 0 0...0
 numbers.CopyTo(copyNumbers, 2); // копіювання усього масиву numbers у copyNumbers, починаючи з індексу 2
 PrintArray(copyNumbers);
 
@@ -40,7 +40,7 @@ bool allPositive = Array.TrueForAll(numbers, IsPositive); // перевірка 
 Console.WriteLine($"All elements positive: {allPositive}");
 
 Console.WriteLine("\nEven elements from origin array:");
-int[] evenNumbers = Array.FindAll(numbers, IsEven); // пошук усіх парних елементів за допомогою лямбда-виразу
+int[] evenNumbers = Array.FindAll(numbers, IsEven); // пошук усіх парних елементів
 PrintArray(evenNumbers);
 bool IsEven(int value) => value % 2 == 0; // локальна функція для перевірки парності (предикатна = логічна, повертає bool)
 bool IsDiv5(int value) => value % 5 == 0; // локальна функція для перевірки кратності 5 (предикатна = логічна, повертає bool)
