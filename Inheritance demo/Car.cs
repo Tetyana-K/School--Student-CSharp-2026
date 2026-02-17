@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Inheritance_demo
 {
-    enum EngineType { Electric, Fuel, Hybrid}
-    internal class Car : Vehicle // похідний від базового Vehicle
+    public enum EngineType { Electric, Fuel, Hybrid}
+    public class Car : Vehicle // похідний від базового Vehicle
         // Car успадкував усі нестатичні поля, методи
     {
         public EngineType EngineType { get; set; } = EngineType.Fuel;
         public Car() { }
-        public Car(string brand, int year, EngineType engineType)
+        public Car(string brand, int year, EngineType engineType = EngineType.Fuel)
             : base(brand, year) // виклик конструктора базового класу
         {
             this.EngineType = engineType;
@@ -30,7 +30,7 @@ namespace Inheritance_demo
         public override string ToString()
         {
             //return $"Car '{brand}' {year}"; // year - OK, protected,   brand  - не доступний  
-            return $"Car '{Brand}' {year} {EngineType}"; // OK, Brand - public property
+            return $"Car '{Brand}' {year} {EngineType} speed : {speed}"; // OK, Brand - public property
         }
     }
 }

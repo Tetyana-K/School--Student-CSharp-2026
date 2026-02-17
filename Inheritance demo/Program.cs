@@ -1,7 +1,9 @@
 ﻿using Inheritance_demo;
 
 Vehicle v = new Vehicle("Ford", 2018);
-Console.WriteLine(v);
+v.year = 2019; // OK, internal, ніби public для своїх (у поточній збірці)
+//v.speed = 100; // error, не видимо ззовні
+v.Start();
 v.Move();
 Console.WriteLine();
 
