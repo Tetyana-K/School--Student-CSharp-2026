@@ -18,7 +18,7 @@ namespace Abstract_class_demo
         {
             Color = color;
         }
-        public override void MakeSound()
+        public override void MakeSound() // реалізація абстрактного методу MakeSound() з абстрактного класу Animal
         {
             Console.WriteLine($"Cat '{Nickname}' ({ Age } years) says: Meow!");
         }

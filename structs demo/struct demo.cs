@@ -6,7 +6,7 @@ person.Age = 18;
 Console.WriteLine(person.Name);
 Console.WriteLine(person.Age);
 
-ChangeAge(person); // Alice 19
+ChangeAge(ref person); // Alice 19
 DisplayPerson(person);
 
 string name;
@@ -33,11 +33,12 @@ void DisplayPerson(in Person p) // in - передача за посилання
 {
     Console.WriteLine($"Name: {p.Name}, Age: {p.Age}");
 }
-void ChangeAge(Person p) // якщо потрібно змінити структуру, то передаємо її за посиланням ref
+void ChangeAge( ref Person p) // якщо потрібно змінити структуру, то передаємо її за посиланням ref
 {
     ++p.Age;
 }
 // struct - тип-значення (value-type), зберігається на стеку (якщо не є частиною класу)
+
 struct Person
 {
     public string Name { get; set; } = "Noname";
@@ -65,7 +66,7 @@ struct Person
 }
 readonly struct Point // readonly struct - всі поля є readonly, тобто методи не можуть змінювати стан структури
 {
-    public readonly int X { get;}
+    public /*readonly*/ int X { get;}
     public readonly int Y { get; }
     public Point(int x, int y)
     {
@@ -75,7 +76,7 @@ readonly struct Point // readonly struct - всі поля є readonly, тобт
     }
     public double DistanceToOrigin()
     {
-        ++X; // Помилка: не можна змінювати поле readonly struct
+        //++X; // Помилка: не можна змінювати поле readonly struct
         return Math.Sqrt(X * X + Y * Y);
     }
 }

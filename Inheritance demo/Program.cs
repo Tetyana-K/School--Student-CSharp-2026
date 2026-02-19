@@ -7,7 +7,7 @@ v.Start();
 v.Move();
 Console.WriteLine();
 
-Car car = new Car(/*"Audi", 2020*/);
+Car car =  new Car(/*"Audi", 2020*/);
 car.Brand = "Audi";
 Console.WriteLine(car);
 

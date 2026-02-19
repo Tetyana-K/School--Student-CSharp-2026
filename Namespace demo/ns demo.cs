@@ -1,5 +1,5 @@
 ﻿using Mathematics;
-using Mathematics.Equations;
+using Mathematics.Equations; // пыдключили простір імен Equations, вкладений всередині Mathematics
 //using Mathematics.Shape;
 using Drawing;
 Circle c = new() { Radius = 10 };
@@ -25,12 +25,13 @@ namespace Mathematics // визначили користувацький про�
         class Linear { }
         class Quadratic { }
     }
-    namespace Shape {
+    namespace Shape  // вкладений простір імен Shape всередині Mathematics
+    {
         class Rectangle { }
     }
 }
 
-namespace Mathematics.Shapes // інший вкладений простір імен Shapes всередині Mathematics
+namespace Mathematics.Shapes // іншим способом (Mathematics.Shapes ) вкладений простір імен Shapes всередині Mathematics
 {
     class Square 
     {

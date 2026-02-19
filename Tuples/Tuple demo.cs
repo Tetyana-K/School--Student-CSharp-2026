@@ -25,6 +25,7 @@ var result = MaxMin2(numbers);
 Console.WriteLine(result);
 Console.WriteLine($"Max = {result.Item1}, Min = {result.Item2}");
 Console.WriteLine($"Max = {result.max}, Min = {result.min}");
+result.max = 100; // змінюємо значення поля max у кортежі result для експерименту,ok, Тобто ValueTuple - це змінюваний кортеж, на відміну від System.Tuple, який є незмінним (immutable)
 
 
 void MaxMin(int[] numbers, out int max, out int min)
@@ -39,7 +40,7 @@ void MaxMin(int[] numbers, out int max, out int min)
 }
 
 (int max, int min) MaxMin2(int[] numbers) // ?
-//(int, int ) MaxMin2(int[] numbers) // ?
+//(int, int) MaxMin2(int[] numbers) // ?
 {
     int max1 = numbers[0];
     int min1 = numbers[0];

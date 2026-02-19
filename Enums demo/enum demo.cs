@@ -1,8 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-
-
+﻿
 Genre myFavoriteGenre = Genre.Comedy;
 Console.WriteLine($"My favorite genre is: {myFavoriteGenre}, code in enum = {(int)myFavoriteGenre} ");
 
@@ -19,10 +15,11 @@ Console.WriteLine(genreList);
 Console.WriteLine($"\nInput genre {genreList}: ");
 string inputGenre = Console.ReadLine()!;
 
-if (Enum.TryParse<Genre>(inputGenre, true, out Genre parsedGenre))
+if (Enum.TryParse<Genre>(inputGenre, true, out Genre parsedGenre)) // true - ігноруємо регістр символів при парсингу
 {
     Console.WriteLine($"You have selected: {parsedGenre}, code in enum = {(int)parsedGenre} ");
-    if (Enum.IsDefined(typeof(Genre), parsedGenre)) // перевіряємо, чи є значення визначеним у enum - посилена перевірка
+   // if (Enum.IsDefined(typeof(Genre), parsedGenre)) // перевіряємо, чи є значення визначеним у enum - посилена перевірка
+    if (Enum.IsDefined<Genre>( parsedGenre)) // перевіряємо, чи є значення визначеним у enum - посилена перевірка
     {
         Console.WriteLine($"{parsedGenre} is a defined genre in the enum.");
     }
@@ -37,7 +34,7 @@ else
 }
 
 Material itemMaterials = Material.Wood | Material.Metal | Material.Fabric;
-Console.WriteLine($"\nItem's material: {itemMaterials}, {(int)itemMaterials}"); // приведення до int виведе суму значень прапорців
+Console.WriteLine($"\nItem's material: {itemMaterials}, total enum value = {(int)itemMaterials}"); // приведення до int виведе суму значень прапорців
 
 string[] materialNames = Enum.GetNames<Material>(); // отримуємо всі імена матеріалів як масив рядків
 Console.WriteLine($"Input material: {string.Join(", ", materialNames)}");
@@ -52,15 +49,19 @@ else
 }
 
 // enum - перелічуваний тип
-enum Genre //: byte // базовий тип byte 0..255
+// enum - це тип даних, який складається з набору іменованих констант, які представляють цілі числа.
+// усі enum-типи успадковуються від базового типу System.Enum, який є абстрактним класом,
+// що надає загальні методи для роботи з enum-типами, такі як GetValues(), GetNames(), TryParse() та інші.
+enum Genre //: byte // базовий тип byte 0..255, по замовчуванню базовий тип enum - int
 {
     Action , // 0 за замовчуванням
-    Comedy, // +1 відносно попереднього, якщо не вказано явно
+    Comedy , // +1 відносно попереднього, якщо не вказано явно
     Drama , //2
     Horror, //3
     Romance, //4
     SciFi //5
 }
+
 [Flags] // атрибут, що вказує, що enum є прапорцевим (bit field), 
 // тобто кожне значення enum є степенем двійки,
 // що дозволяє комбінувати їх за допомогою побітових операцій
