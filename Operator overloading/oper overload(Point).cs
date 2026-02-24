@@ -111,7 +111,7 @@ class Point
             Y = left.Y + right.Y
         };
     }
-    public static Point operator *(Point point, int number) // point1 * 3
+    public static Point operator *(Point point, int number) // point1 * 3 : point1 (2, 4) * 10 = (20, 40)
     {
         Point result = new Point();
         result.X = point.X * number;
@@ -121,7 +121,7 @@ class Point
     // пишемо один раз ++, компілятор САМ зробить дві форми (префіксну та постфіксну)
     public static Point operator ++(Point point) // + 1 до кожної координати
     {
-        return new Point()
+        return new Point() // обовязково створюємо нову точку, а не змінюємо існуючу
         {
             X = point.X + 1,
             Y = point.Y + 1
@@ -147,11 +147,13 @@ class Point
 
     public static bool operator >(Point left, Point right)
     {
-        return left.X > right.X;
+        //return left.X > right.X;
+        return left.Distance > right.Distance;
     }
     public static bool operator <(Point left, Point right)
     {
-        return left.X < right.X;
+        //return left.X < right.X;
+        return left.Distance < right.Distance;
     }
 
     // перевантажено оператор явного перетворення Point до типу int

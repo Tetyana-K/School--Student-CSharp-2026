@@ -6,7 +6,7 @@ object o = number; // упаковка(boxing), значення number(value-ty
 Console.WriteLine($"_____Boxing int o = {o}, type = {o.GetType()} ");
 
 // розпаковка(unboxing), object ---> створити ділянку на стеку та скопіювати значення ділянки на heap
-int number2 = (int)o; // розпаковка виклнується через  явне зведення до потрібного типу,
+int number2 = (int)o; // розпаковка виконується через  явне зведення до потрібного типу,
                       // якщо тип не співпадає, то буде виняток InvalidCastException
 Console.WriteLine($"Unboxing into number 2 = {number2,-10}");
 

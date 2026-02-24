@@ -3,12 +3,12 @@
 // існує  обгортка над  value-типами Nullable<тип>
 
 int a = 100;
-//int b = null; // error
+//int a2 = null; // error
 
 Nullable<int> b = null;
- //b = 222;
+//b = 222;
 int? c = 200; // int ? синтаксичний цукор для Nullable<int>
-//c = null;
+c = null;
 
 Console.WriteLine($"a = {a}");
 Console.WriteLine($"b = {b}");

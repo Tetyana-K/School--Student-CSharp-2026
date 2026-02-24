@@ -1,4 +1,5 @@
 ﻿string str = "Demo  line";
+
 Console.WriteLine($"String = '{str}'");
 Console.WriteLine($"Length  = {str.Length}");
 Console.WriteLine($"Substring(0, 4)  = {str.Substring(0, 4)}");
@@ -13,13 +14,13 @@ Console.WriteLine($"Substring(0, 4)  = '{str?.Substring(0, 4)}'");
 
 
 int[] arr = { 10, 20, 30, 40, 50 }; // теж посилального типу, можна = null, arr ----> [10][20][30][40][50]
-arr = null;
+//arr = null;
 Console.WriteLine($"\nLength of array  = {arr?.Length}"); //?. null-conditional , якщо не null, то звертаємося до  властивості(методу), інакше поверне null
-Console.WriteLine($"First element of array  = {arr?[0]}"); // індексування  з  перевіркою на null
-Console.WriteLine($"First element of array__  = {arr?[0] ?? int.MinValue}"); // індексування  з  перевіркою на null
+Console.WriteLine($"First element of array (or null)  = {arr?[0]}"); // індексування  з  перевіркою на null
+Console.WriteLine($"First element of array__  (or int.MinValue) = {arr?[0] ?? int.MinValue}"); // індексування  з  перевіркою на null
 
 
- //arr = new int[7];// arr----> [][][][][][]  в любому  випадку масив створюється новий
+//arr = new int[7];// arr----> [][][][][][]  в любому  випадку масив створюється новий
 arr ??= new int[7];// arr----> [][][][][][]  масив створюється, якщо масиву не  було(тобто null)
 Console.WriteLine($"\nNOW Length of array  = {arr?.Length}"); //?. null-conditional , якщо не null, то звертаємося до  властивості(методу), інакше поверне null
 Console.WriteLine($"Array elements: {string.Join(", ", arr ?? new int[0])}");
@@ -28,7 +29,7 @@ Console.WriteLine($"Array elements: {string.Join(", ", arr ?? new int[0])}");
 string text = Console.ReadLine()!;
 //text = null;
 int length = text!.Length; // Використання null-forgiving operator
-Console.WriteLine($"Length");
+Console.WriteLine($"Length : {length}");
 
 class Person
 {
