@@ -14,6 +14,11 @@ Console.WriteLine($"\n{point1} + {point2} = {point3}");
 Point point4 = point1 * 10;
 Console.WriteLine($"point4 = {point1} * 10 = {point4}");
 
+// перевантаження бінарних операцій +, * та інших дозволяє використовувати їх
+// у складених присвоєннях +=, *= та інших
+point4 *= 2; // point4 = point4 * 2 - тут викликається Point.operator *(point4, 2)
+Console.WriteLine($"point4*=2 = {point4}");
+
 ++point4;
 Console.WriteLine($"++ point4 = {point4}");
 Console.WriteLine($"point4 ++ = {point4++}");
@@ -41,13 +46,13 @@ Console.WriteLine($"int number = {iValue}");
 Point point6 = (Point) 55; // explicit cast
 Console.WriteLine($"point6 = (Point) 55 : {point6}");
 
-point2[0] = 22; // point1.X = 22
-point2[1] = 44; // point1.Y = 44
-Console.WriteLine($"point2[0] = {point2[0]}, point2[1] =  {point2.Y}");
+point2[0] = 22; // point1.X = 22 set
+point2[1] = 44; // point1.Y = 44 set
+Console.WriteLine($"point2[0] = {point2[0]}, point2[1] =  {point2.Y}"); // [] - get
 
 Console.WriteLine($"String index, point2[\"X\"] =  {point2["X"]}\n");
 
-point1.X = 0;
+//point1.X = 0;
 point1.Y = 0;
 if (point1)
 {
@@ -79,7 +84,7 @@ class Point
                 return Y;
             throw new IndexOutOfRangeException("Index can be 0 or 1");
         }
-        set 
+        set
         {
             switch (index)
             {
@@ -121,6 +126,7 @@ class Point
     // пишемо один раз ++, компілятор САМ зробить дві форми (префіксну та постфіксну)
     public static Point operator ++(Point point) // + 1 до кожної координати
     {
+        //point.X++; point.Y++; - ++ не буде повноцінно працювати
         return new Point() // обовязково створюємо нову точку, а не змінюємо існуючу
         {
             X = point.X + 1,
@@ -131,7 +137,7 @@ class Point
     // рекомендовано при перевантаженні == також перевизначати метод Equals()
     public static bool operator ==(Point left, Point right)
     {
-        //return left.X == right.X && left.Y == right.Y;
+        // return left.X == right.X && left.Y == right.Y;
         if (ReferenceEquals(left, right)) // коли посилання однакові, то зліва та справи - один і той же обєкт
             return true;
         if (ReferenceEquals(left, null))
@@ -156,20 +162,23 @@ class Point
         return left.Distance < right.Distance;
     }
 
-    // перевантажено оператор явного перетворення Point до типу int
+    // перевантажено оператор ЯВНОГО (explicit) перетворення Point до типу int
     public static explicit operator int(Point point) 
     {
         return point.X;
     }
-    // перевантажено оператор неявного перетворення Point до типу double
+    // перевантажено оператор НЕЯВНОГО (implicit) перетворення Point до типу double
     public static implicit operator double(Point point)
     {
         return point.Distance;
     }
+    // перевантажено оператор ЯВНОГО (explicit) перетворення int до типу Point
     public static explicit operator Point(int x)
     {
         return new Point() { X = x, Y = 0 };
     }
+    // перевантаження логічних операторів true та false для можливості використання обєктів типу Point
+    // в умовних конструкціях if, while, for
     public static bool operator true(Point point)
     {
         return point.X!=0 || point.Y !=0;

@@ -3,7 +3,7 @@ using Interface_demo;
 
 Console.WriteLine("_________Interface demo________");
 Bird bird = new Bird() { Height = 12};
-//bird.Height = 10;
+bird.Height = 10;
 bird.Fly();
 
 IFly flyable = bird; // можна присвоїти об'єкт класу, який реалізує інтерфейс, змінній типу цього інтерфейсу
@@ -24,7 +24,7 @@ flyable = plane; // можна присвоїти об'єкт класу, яки
 flyable.Fly();
 
 // масив типу інтерфейсу, який може містити об'єкти класів, які реалізують цей інтерфейс
-IFly[]flyables = new IFly[] 
+IFly[] flyables = new IFly[] 
 { 
     bird,
     plane,
