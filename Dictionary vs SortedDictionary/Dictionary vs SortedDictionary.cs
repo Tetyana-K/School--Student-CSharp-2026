@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 
 
-// SortedDictionary <> - складається з  пар, впорядкована по  ключу,
-// організована як дерево  бінарного пошуку
+// SortedDictionary <> - складається з  пар (ключ, значення), впорядкована по ключу,
+// організована як дерево бінарного пошуку
 SortedDictionary<string, int> sd = new SortedDictionary<string, int>()
-{
+{ 
     ["BMW"] = 45_000,
     ["Toyota"] = 37_000,
     ["Audi"] = 25_000,
 };
+
 if(sd.TryAdd("Mercedes", 50_000)) // - намагається додати пару,  якщо можливо(тобто ключа немає), повертає істину, якщо пара додалася
 {
-    Console.WriteLine("Pair 'Mercedes' : 50000] was added");
+    Console.WriteLine("Pair 'Mercedes' : 50000 was added");
 }
 
 if (!sd.TryAdd("BMW", 50_000)) // - не додасть пару,  оскільки ключ 'BMW' вже існує, повертає false
 {
-    Console.WriteLine("Pair 'BMW' : 50000] was NOT added");
+    Console.WriteLine("Pair 'BMW' : 50000 was NOT added");
 }
 
 Console.WriteLine("_____Sorted dictionary_____");
@@ -42,5 +43,19 @@ foreach (var p in dd)
     Console.WriteLine($"Furniture : '{p.Key}'\tPrice :{p.Value}");
 }
 
-dd.TryGetValue("Door", out int price); // намагаємося отримати доступ на читання по ключу, якщо ок - у price буде value пари
+if(dd.TryGetValue("Door", out int price)) // намагаємося отримати доступ на читання по ключу, якщо ок - у price буде value пари
+{
+    Console.WriteLine($"Price of 'Door' is {price}");
+}
+else
+{ 
+    Console.WriteLine("Key 'Door' not found");
+}
 
+dd.Remove("Lamp"); // вилучає пару з ключем 'Lamp'
+Console.WriteLine("After removing 'Lamp':");
+
+foreach (var p in dd)
+{
+    Console.WriteLine($"Furniture : '{p.Key}'\tPrice :{p.Value}");
+}

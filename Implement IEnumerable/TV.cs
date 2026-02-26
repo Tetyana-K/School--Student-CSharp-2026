@@ -28,7 +28,7 @@ namespace IEnumerable_realiz
                 new Channel(){ Number = 102, Name = "Hit FM"}
             };
         }
-        public void AddChannel(Channel channel)
+        public void AddTVChannel(Channel channel)
         {
             channels.Add(channel);
         }
@@ -45,7 +45,7 @@ namespace IEnumerable_realiz
             {
                 yield return ch; // yield return - після повернення поточного значення, вернемося сюди для продовження 
             }
-           // return radioChannels.GetEnumerator(); // ліниво, але вірно = повернули перелічувач для списку  channels
+            // return channels.GetEnumerator(); // ліниво, але вірно = повернули перелічувач для списку  channels
         }
 
         public IEnumerable<Channel> RadioChannels() // явний  іменований ітератор, повертає  ітерабельну колекцію з радіоканалів,

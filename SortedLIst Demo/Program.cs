@@ -20,11 +20,11 @@ class Program
         Console.OutputEncoding = System.Text.Encoding.Default;
         //SortedListDemo();
         SortedListGeneric();
-
     }
 
     private static void SortedListGeneric()
     {
+        
         // SortedList<TKey, TValue> - колекція містить пари виду (TKey Key, TValue Value),
         // впорядкування по  ключу(за зростанням по замовчуванню),  ключі УНІКАЛЬНІ
         // організована у вигляді паралельних  масивів(Ключі, Значення)
@@ -57,35 +57,39 @@ class Program
         {
             Console.WriteLine($"\nWas removed pair with  key '{key}'  and value  '{translate}'");
         }
-        voc.RemoveAt(0); // вилучаємо пару за індексом
+        voc.RemoveAt(0); // вилучаємо пару за індексом - пара з ключем "book"
         PrintSL(voc, "\n_______________After removing");
     }
 
     private static void SortedListDemo()
     {
-        // SortedList - колекція містить пари виду (object ключ Key, object значення Value),
-        // впорядкування по  ключу(за зростанням), ключі одного типу, ключі УНІКАЛЬНІ
-        // організована у вигляді паралельних  масивів(Ключі, Значення)
-        SortedList sl = new SortedList(20)
-            {
-                //[1] = "Nastia",
-                { 55555555, "Petro"},
-                { 12121212, "Anna"},
-                { 41444444, "Olesia"},
-                { 33300000, "Vadim"},
-                { 13300000, 12.45},
-                { 73300000, true},
-            };
-        int key = 77777777;
+        // SortedList - неузагальнена колекція  містить пари виду (object ключ Key, object значення Value),
+        // впорядкування по  ключу (за зростанням), ключі одного типу, ключі УНІКАЛЬНІ
+        // організована у вигляді паралельних  масивів (Ключі, Значення)
+        SortedList sl = new SortedList(20) // 20 - початкова ємність колекції (capacity),  якщо кількість пар перевищить 20, то ємність збільшиться вдвічі
+        {
+            //[1] = "Nastia", - ініціалізація пари (ключ, значення) за допомогою індексатора []
+            { 55555555, "Petro"},
+            { 12121212, "Anna"},
+            { 41444444, "Olesia"},
+            { 33300000, "Vadim"},
+            { 13300000, 12.45},
+            { 73300000, true},
+        };
+        int key =  77777777;
         object value = new Person() { Name = "Ihor" };
 
+        //sl.Add(key, value); // додавання пари (ключ, значення) за допомогою методу Add()
+        
         if (!sl.Contains(key))
         {
             sl.Add(key, value);
+            Console.WriteLine($"Pair {key} : {value} added");
         }
         if (!sl.Contains(key))
         {
             sl.Add(key, value);
+            Console.WriteLine($"Pair {key} : {value} added");
         }
         else
         {
@@ -100,17 +104,17 @@ class Program
         //[] get  - якщо пара існує, то  повертається значення(value)  із  пари
         //[] get  - якщо пари немає, то null
 
-        Console.WriteLine($"Get by   [{key}] = {sl[key]}");
+        Console.WriteLine($"Get by [{key}] = {sl[key]}");
         key = 100;
-        Console.WriteLine($"Get by   [{key}] = {sl[key]}"); // null
+        Console.WriteLine($"Get by [{key}] = {sl[key]}"); // null
 
         sl.Remove(key); // вилучили пару по  ключу key
-        sl.RemoveAt(0); // вилучили пару по  її індексу (№0)
+        sl.RemoveAt(0); // вилучили пару по  її індексу (#0)
         PrintSL(sl, "_________________Sorted list after removing");
 
         // організована у вигляді паралельних  масивів, тому підтримується робота на  рівні індексів пар
         Console.WriteLine("\n\t\tEnter  index of pair : ");
-        int index = int.Parse(Console.ReadLine());
+        int index = int.Parse(Console.ReadLine()!);
         if (index < sl.Count && index >= 0)
         {
             Console.WriteLine($"Index # {index} Key : {sl.GetKey(index)} Value : {sl.GetByIndex(index)}");
@@ -133,7 +137,7 @@ class Program
     {
         Console.WriteLine(text);
 
-        foreach (DictionaryEntry p in sl)
+        foreach (DictionaryEntry p in sl) // DictionaryEntry - структура для зберігання пари (ключ, значення) в неузагальнених колекціях, таких як SortedList
         {
             Console.WriteLine($"{p.Key,10} : {p.Value}");
         }

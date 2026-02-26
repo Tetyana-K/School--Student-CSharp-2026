@@ -9,7 +9,7 @@ namespace IEnumerable_realiz
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             TV tv = new TV();
-            tv.AddChannel(new Channel() { Number = 6, Name = "K-1" });
+            tv.AddTVChannel(new Channel() { Number = 6, Name = "K-1" });
             Console.WriteLine(tv);
 
             //tv.Print();
@@ -32,3 +32,4 @@ namespace IEnumerable_realiz
         }
     }
 }
+// 

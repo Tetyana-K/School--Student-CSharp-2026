@@ -107,6 +107,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionary vs SortedDiction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortedSet vs HashSet", "SortedSet vs HashSet\SortedSet vs HashSet.csproj", "{327A6ACB-E2E1-4CF4-A8EA-B39A659896E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper Dict Login-Password", "Helper Dict Login-Password\Helper Dict Login-Password.csproj", "{EDEDD09E-CDBE-44E3-B977-BF353D0E9CB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -285,6 +287,10 @@ Global
 		{327A6ACB-E2E1-4CF4-A8EA-B39A659896E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{327A6ACB-E2E1-4CF4-A8EA-B39A659896E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{327A6ACB-E2E1-4CF4-A8EA-B39A659896E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDEDD09E-CDBE-44E3-B977-BF353D0E9CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDEDD09E-CDBE-44E3-B977-BF353D0E9CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDEDD09E-CDBE-44E3-B977-BF353D0E9CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDEDD09E-CDBE-44E3-B977-BF353D0E9CB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

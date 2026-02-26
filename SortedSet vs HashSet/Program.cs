@@ -1,5 +1,6 @@
 ﻿using Product_NS;
-// невпорядкована множина,  збережена як хеш таблиця, швидкий пошук до  елемента (пошук елемента на основі хеш, складність O(1))
+// невпорядкована множина,  збережена як хеш таблиця, унікальні елементи,
+// швидкий пошук до  елемента (пошук елемента на основі хеш, складність O(1))
 HashSet<string> set = new HashSet<string>()
 {
     "apple",
@@ -8,6 +9,7 @@ HashSet<string> set = new HashSet<string>()
 };
 
 set.Remove("apple");
+set.Add("blackberry");
 set.Add("blackberry");
 Console.WriteLine("______Hash set_____");
 foreach (var item in set)
@@ -38,7 +40,7 @@ HashSet<Product> products = new HashSet<Product>()
     new Product() { Name = "Phone", Price = 500 },
     new Product() { Name = "Laptop", Price = 1500 }
 };
-products.Add(new Product() { Name = "TV", Price = 1000 }); //  не додасться у products, оскільки об'єкт з такими ж даними вже існує, а ми перевизначили GetHashCode(), Equals() 
+products.Add(new Product() { Name = "TV", Price = 1000 }); //  НЕ додасться у products, оскільки об'єкт з такими ж даними вже існує, а ми перевизначили GetHashCode(), Equals() 
 // якщо б ми не перевизначили GetHashCode(), Equals(), то додалося б, оскільки за замовчуванням ці методи працюють на основі посилання на об'єкт,
 // і два різні об'єкти вважаються різними, навіть якщо їхні дані однакові
 Console.WriteLine("______Products (hashset)_____");
