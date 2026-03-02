@@ -33,7 +33,7 @@ namespace IEnumerable_realiz
             channels.Add(channel);
         }
 
-        public IEnumerator GetEnumerator() // неявний ітератор, повертає  перелічувач для колекції каналів,
+        public IEnumerator GetEnumerator() // неявний (неімнований) ітератор, повертає  перелічувач для колекції каналів,
                                            // який буде використовуватися циклом foreach для обходу каналів
         {
             foreach (var ch in channels)
@@ -45,7 +45,7 @@ namespace IEnumerable_realiz
             {
                 yield return ch; // yield return - після повернення поточного значення, вернемося сюди для продовження 
             }
-            // return channels.GetEnumerator(); // ліниво, але вірно = повернули перелічувач для списку  channels
+            //return channels.GetEnumerator(); // ліниво, але вірно = повернули перелічувач для списку  channels
         }
 
         public IEnumerable<Channel> RadioChannels() // явний  іменований ітератор, повертає  ітерабельну колекцію з радіоканалів,
@@ -65,7 +65,7 @@ namespace IEnumerable_realiz
             {
                 if (ch.Number <= number)
                     yield return ch;
-                //if(ch.Number % 4 == 0) 
+                if(ch.Number % 4 == 0) 
                 //    yield break; // достроковий вихід  з  ітератора
             }
         }

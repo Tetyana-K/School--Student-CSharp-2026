@@ -1,13 +1,13 @@
 ﻿
 Console.WriteLine("------Generics-------");
 int one = 10, two = 22;
-Swap(ref one, ref two);
+//Swap(ref one, ref two);
 Console.WriteLine($"one = {one}, two = {two}");
 Console.WriteLine($"\nMax({one}, {two}) = {Maximum(one, two)}");
 
 
 double oneD = 10.5, twoD = -2.2;
-Swap(ref oneD, ref twoD);
+//Swap(ref oneD, ref twoD);
 
 Console.WriteLine($"oneD = {oneD}, twoD = {twoD}");
 Console.WriteLine($"\nMax({oneD}, {twoD}) = {Maximum(oneD, twoD)}");
@@ -42,12 +42,12 @@ void Swap<T>(ref T a, ref T b) // ref - передача по посиланню
 //}
 // where = constraints for Type = обмеження для типу, щоб вказати,
 // які типи можуть бути використані з узагальненими класами та методами.
-//T:struct - обмеження для типу T, щоб він був структурою (value type), а не класом (reference type).
-// T:class - обмеження для типу T, щоб він був класом (reference type)
-// T:IComparable<T> - обмеження для типу T, щоб він реалізував інтерфейс IComparable<T>, що дозволяє порівнювати об'єкти цього типу між собою.
+// T: struct - обмеження для типу T, щоб він був структурою (value type), а не класом (reference type).
+// T: class - обмеження для типу T, щоб він був класом (reference type)
+// T: IComparable<T> - обмеження для типу T, щоб він реалізував інтерфейс IComparable<T>, що дозволяє порівнювати об'єкти цього типу між собою.
 T Maximum<T>(T a, T b) where T : /*struct */IComparable<T> // class T - ref type, struct  T - value type
 {
-   // if (a > b) //-- error
+    //if (a > b) //-- error
     if (a.CompareTo(b) > 0) // лоічно працює як порівняння операцією > 
         return a;
     return b;
@@ -55,7 +55,7 @@ T Maximum<T>(T a, T b) where T : /*struct */IComparable<T> // class T - ref type
 
 class Person : IComparable<Person> // Person реалізує інтерфейс IComparable<Person>, щоб можна було порівнювати об'єкти через метод CompareTo
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int Age { get; set; }
 
     public int CompareTo(Person? other)

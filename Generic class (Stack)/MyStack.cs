@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Generic_class__Stack_
 {
-    internal class MyStack<T> : IMyStack<T>
+    internal class MyStack<T> : IMyStack<T>, IEnumerable
     {
         const int defaultCapacity = 10; // константа для початкової ємності стеку
         const int emptyStack = -1; // константа для позначення порожнього стеку
@@ -17,6 +18,15 @@ namespace Generic_class__Stack_
             top = emptyStack; // ініціалізація індексу вершини стеку значенням -1, що означає, що стек порожній
             stack = new T[defaultCapacity]; // створення масиву для зберігання елементів стеку з початковою ємністю 10
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = top; i >= 0; i--)
+            {
+                yield return stack[i];
+            }
+        }
+
         public bool IsEmpty()
         {
             return top == emptyStack; // стек порожній, якщо індекс вершини стеку дорівнює -1

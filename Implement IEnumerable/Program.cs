@@ -14,7 +14,7 @@ namespace IEnumerable_realiz
 
             //tv.Print();
             Console.WriteLine("___________All  channels______________");
-            foreach (Channel ch in tv) //застосували неявний ітератор
+            foreach (Channel ch in tv) //застосували неявний ітератор - GetEnumerator() з інтерфейсу IEnumerable
             {
                 Console.WriteLine(ch);
             }
@@ -23,7 +23,7 @@ namespace IEnumerable_realiz
             {
                 Console.WriteLine(ch);
             }
-            int number = 50;
+            int number = 4;
             Console.WriteLine($"\n___________Channels_with number <= {number}_____________");
             foreach (Channel ch in tv.ChannelsLessNumber(number)) //застосували явний ітератор ChannelsLessNumber()
             {
