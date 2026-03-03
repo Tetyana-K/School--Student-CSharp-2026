@@ -65,7 +65,7 @@ namespace IEnumerable_realiz
             {
                 if (ch.Number <= number)
                     yield return ch;
-                if(ch.Number % 4 == 0) 
+                //if(ch.Number % 4 == 0) 
                 //    yield break; // достроковий вихід  з  ітератора
             }
         }
