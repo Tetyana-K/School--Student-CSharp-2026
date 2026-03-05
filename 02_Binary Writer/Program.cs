@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO;
 
-string fname = "info.dat";
+string fname = "../../../info.dat";
 
 using (BinaryWriter bw = new BinaryWriter(new FileStream(fname, FileMode.Create)))
 {
-    int value = 100;
-    double valueD = 12.345;
-    string str = "Hello! Привіт!";
+    int value = 100; // 4 bytes
+    double valueD = 12.345; // 8 bytes
+    string str = "Hello! Привіт!"; 
     DateTime now = DateTime.Now;
 
     bw.Write(value); // записали у файл ціле число, при записі типу даних,  BinaryWriter автоматично перетворює його у послідовність байтів і зберігає у файл
@@ -16,14 +16,14 @@ using (BinaryWriter bw = new BinaryWriter(new FileStream(fname, FileMode.Create)
     bw.Write(now.ToString()); // зберегли дату як рядок, тому будемо потім читати як рядок
 
     int[] arr = { 10, -20, 30, 40, 50, 88, 77 };
-    bw.Write(arr.Length);// пишемо у файл число елементів масиву (int)
+    bw.Write(arr.Length);// пишемо у файл число 7  елементів масиву (int)
     foreach (var item in arr)
     {
         bw.Write(item); // пишемо у файл кожен елемент масиву (int),
                         // при читанні ми повинні знати, що спочатку йде розмір масиву, а потім стільки ж цілих чисел
     }
 
-    ConsoleColor backColor = ConsoleColor.Green;
+    ConsoleColor backColor = ConsoleColor.DarkBlue;
     bw.Write((int)backColor); // записали у файл ціле число, яке відповідає константі ConsoleColor.Green, при читанні ми повинні знати, що це ціле число, яке потрібно перетворити у ConsoleColor
     bw.Write(ConsoleColor.Yellow.ToString());
     // bw.Dispose(); // звільняє всі ресурси, пов'язані з потоком, включаючи закриття потока. Після виклику Dispose() потік більше не может быть использован для чтения или записи данных.
@@ -56,7 +56,8 @@ using (BinaryReader br = new BinaryReader(new FileStream(fname, FileMode.Open)))
     ConsoleColor foreColor = Enum.Parse<ConsoleColor>(br.ReadString());
     Console.BackgroundColor = backColor;
     Console.ForegroundColor = foreColor;
-    Console.WriteLine("Demo");
+    Console.WriteLine("\nDemo");
+    Console.ResetColor();
 }
             //Console.BackgroundColor = ConsoleColor.Yellow;
             //Console.ForegroundColor = ConsoleColor.Blue;

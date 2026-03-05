@@ -5,11 +5,11 @@ string path = "../../../my.dat"; // буде бінарний файл, розм
 // using = блок, який забезпечує автоматичне звільнення ресурсів після завершення роботи з ними, навіть якщо виникнуть виключення.
 using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.ReadWrite))
 {
-    byte val = 97; // 'a'
+    byte val = 122; // 'z'
     byte[] bytes = { 65, 66, 67, 68, 69, 70 };// коди символів ABCDEF
     fs.WriteByte(val); // пишемо 1 байт - 'a'
     // fs.Write(bytes, 0, 4); // ABCD
-    fs.Write(bytes); // ABCDEF
+    fs.Write(bytes, 0, 2); // ABCDEF
     Console.WriteLine($"_________File Length____ {fs.Length}___");
 
     if (fs.CanRead)
@@ -27,4 +27,6 @@ using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.ReadWrit
         Console.WriteLine("Cannot read!!!!");
     // fs.Close(); // закриває потік і звільняє всі ресурси, пов'язані з потоком. Після виклику Close() потік більше не може бути використаний для читання або запису даних.
     //fs.Dispose(); // звільняє всі ресурси, пов'язані з потоком, включаючи закриття потока. Після виклику Dispose() потік більше не може бути використаний для читання або запису даних.
-} // після виходу з блоку using, об'єкт FileStream буде автоматично закритий і звільняться всі ресурси, пов'язані з файлом.
+} // після виходу з блоку using, српацює метод Dispose(), тобто об'єкт FileStream буде автоматично закритий і звільняться всі ресурси, пов'язані з файлом.
+
+// using () {.....} розгортається try{....} finally { f.Dispose();}

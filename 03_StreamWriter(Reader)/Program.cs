@@ -28,7 +28,7 @@ static void ShowFileFast(string path)
     Console.WriteLine("__________File content  ReadToEnd()");
     using (StreamReader sr = new StreamReader(path))
     {
-        string content = sr.ReadToEnd(); // прочитає  весь вміст файлу у рядок
+        string content = sr.ReadToEnd(); // прочитає  весь вміст файлу у рядок (від поточної позиції, зараз  - це початок файлу)
         Console.WriteLine(content);
     }
 }
@@ -40,7 +40,7 @@ static void ShowFileByLine(string path)
     {
         string? line = sr.ReadLine(); // прочитає  рядок з  файлу - перший
         int i = 0;
-        // while (! sr.EndOfStream) // доки не досягнули ознаки кінця потоку
+        //while (! sr.EndOfStream) // доки не досягнули ознаки кінця потоку
         while (line != null) // доки змогли прочитати рядок з  файлу
         {
             Console.WriteLine($"#{++i} : {line}");
@@ -63,7 +63,7 @@ static void CreateTxtFile(string path)
 
         for (int i = 0; i < 5; i++)
         {
-            sw.Write($"{rnd.Next(100),5}"); // записали у файл 5 випадкових чисел, числа будуть уодному рядку, бо ми використовуємо Write(), а не WriteLine()
+            sw.Write($"{rnd.Next(100),5}"); // записали у файл 5 випадкових чисел, числа будуть одному рядку, бо ми використовуємо Write(), а не WriteLine()
         }
         sw.WriteLine(); // записали у файл символ нового рядка, щоб наступний запис був з  нового рядка
     }
