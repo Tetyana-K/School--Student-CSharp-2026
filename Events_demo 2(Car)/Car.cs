@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace Events_demo_2_Car_;
 
 delegate void FewFuelHandler(Car car, string message); // 1 визначили делегат для події
-class Car
+class Car // Publisher (Видавець) клас, який ініціює подію (генерує подію)
 {
     const int fastSpent = 2;
     const int middleSpent = 1;
     const int lowFuel = 5;
     private int fuel;
-    public event FewFuelHandler FewFuel; // 2) створили подію(об`єкт делегату) 
+    
+    public event FewFuelHandler? FewFuel; // 2) створили подію (об`єкт делегату) 
     public string Brand { get; set; }
     public int Fuel 
     {
@@ -24,7 +25,8 @@ class Car
             fuel = value >= 0 ? value : 0;
             if (fuel <= lowFuel)
             {
-                FewFuel?.Invoke( this, "Attention!!!! Low fuel in car!"); // 3) ініціювання події Мало  Палива(позапускаються методи, приєднані на делегат)
+                // 3) ініціювання події Мало  Палива(позапускаються методи, приєднані на делегат)
+                FewFuel?.Invoke( this, "Attention!!!! Low fuel in car!"); 
             }
         }
     }

@@ -2,17 +2,17 @@
 // визначили тип делегату, який може посилатися на ф-ї виду void fff(string)
 
 delegate void MyDeleg(string str); // за кадром створиться клас, який інкапсулює  у собі посилання на метод(групу методів) 
-class Greeting
+delegate int MyFunc(int x, int y); // делегат для методів, які приймають два цілі числа і повертають ціле число
+/*static*/ class Greeting
 {
     public static void Hello(string name)
     {
-        Console.WriteLine($"Hello  {name}!");
+        Console.WriteLine($"Hello {name}!");
     }
     public static void Bye(string name)
     {
-        Console.WriteLine($"Bye  {name}!");
+        Console.WriteLine($"Bye {name}!");
     }
-
 }
 class Chat
 {
@@ -34,29 +34,38 @@ class Program
     {
         //MyDeleg? del = new MyDeleg(Greeting.Hello); // del ------> Greeting.Hello
         MyDeleg? del = Greeting.Hello; // неявне створення екземпляру делегата, який посилається на метод Greeting.Hello
-       // Action<string> del = Greeting.Hello;
+        //Action<string> del = Greeting.Hello;
 
         Console.WriteLine($"\t\tMethod : {del.Method}");
+        Console.WriteLine($"\t\tTarget : {del.Target}");
        
         del("Vadym"); //неявний виклик метод у через  делегат, фактично  працює Hello("Vadym")
-        del.Invoke("Vadym"); // те саме
+        del.Invoke("Artem"); // те саме
         
         del = Greeting.Bye; // del ------> Greeting.Bye
         Console.WriteLine($"\t\tMethod : {del.Method}");
         del("Vadym"); // Bye("Vadym")
 
         del = HowAreYou; // del ------> HowAreYou (local function)
-        del("Vadym");
+        del("Olena");
+
+        Console.WriteLine($"\nMulticast delegete (Hello, How are you, Bye)");
+        del = Greeting.Hello;
+        del+= HowAreYou;
+        del += Greeting.Bye; // додали новий метод  у груповий делегат
+        del("Artem");
 
         Chat chatGirls = new Chat { First = "Anna", Second = "Maria" };
         Chat chatBoys = new Chat { First = "Oleh", Second = "Sergii" };
 
         Console.WriteLine();
         del = chatBoys.SendMessage; // del ------> chatBoys.SendMessage
+        Console.WriteLine($"\t\tMethod : {del.Method}");
+        Console.WriteLine($"\t\tTarget : {del.Target}");
         del("Lets play football");
 
         del = null;
-       // del("TEST"); // NullReferenceException, оскільки del є null і не можна викликати метод через null-посилання
+        //del("TEST"); // NullReferenceException, оскільки del є null і не можна викликати метод через null-посилання
         del?.Invoke("Lets go to the cinema");//  del?.Invoke -  перевірка на null
         Console.WriteLine();
 
@@ -66,6 +75,8 @@ class Program
         del += chatGirls.SendMessage; // додали новий метод  у груповий делегат
         del += chatGirls.SendMessageAnswer; // додали новий метод  у груповий делегат
 
+        del-= chatGirls.SendMessageAnswer; // видалили метод  з групового делегата
+        del-= chatGirls.SendMessageAnswer; // без помилки, оскільки такого методу вже немає у груповому делегаті
         del?.Invoke("TEST");
 
         string[] messages = { "Hi!", "I am glad to  see you", "Hello!", "How  are you" };
@@ -78,7 +89,7 @@ class Program
 
         del.GetInvocationList()[0].DynamicInvoke("Bye!!!");
 
-        void HowAreYou(string name)
+        static void HowAreYou(string name)
         {
             Console.WriteLine($"How are you {name}?");
         }

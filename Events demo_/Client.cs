@@ -8,7 +8,7 @@ namespace Events_Demo;
 
 class Client
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public void Handler(Product p, string message) // 4. Subscriber повинен метод  для обробки події, який підходить під  тип події  
     {
         Console.WriteLine($"Client {Name} notified about  change price of {p.Name}");

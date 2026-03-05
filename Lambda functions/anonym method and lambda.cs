@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("___Anonymous functions and lambda expressions___");
+
 MyDelegate del = delegate  (string msg) // анонімна функція, яка приймає рядок і не повертає значення
 { // delegate - ключове слово для створення анонімної функції, яка не має імені і може бути присвоєна делегату
     // тіло анонімної функції, яка виконується при виклику делегата, виводить повідомлення на консоль
@@ -20,14 +21,15 @@ int value1 = 5;
 int value2 = 10;
 Console.WriteLine($"Sum lambda({value1}, {value2}) = {sum(value1, value2)}");
 
-MyPredicate isEven = (int number) => number % 2 == 0; // лямбда-вираз, який приймає ціле число і повертає true, якщо число парне, і false - якщо непарне
+//MyPredicate isEven = (int number) => number % 2 == 0; // лямбда-вираз, який приймає ціле число і повертає true, якщо число парне, і false - якщо непарне
+MyPredicate isEven =  number => number % 2 == 0; // лямбда-вираз, який приймає ціле число і повертає true, якщо число парне, і false - якщо непарне
 int numberToCheck = new Random().Next(1, 101); // випадкове число від 1 до 100
 Console.WriteLine($"Number {numberToCheck} is even: {isEven(numberToCheck)}\n");
 
 
 int[] numbers = new int[] { 1, 20, -3, 48, 58, 61, 7, 88, 9, -10 };
 //Array.Sort(numbers); // сортування масиву за допомогою лямбда-виразу, який порівнює два числа
-
+// Comparison<> - стд делегат, який визначає метод порівняння двох об'єктів одного типу і повертає ціле число, яке вказує на відносний порядок об'єктів
 Array.Sort(numbers, (a, b) => b.CompareTo(a)); // сортування масиву за допомогою лямбда-виразу, який порівнює два числа
 // було впорядковано по спаданню
 Console.WriteLine("_____Sorted array");
@@ -46,7 +48,7 @@ List<Person> people = new List<Person>
 
 //Comparison<> - стд делегат, який визначає метод порівняння двох об'єктів одного типу і повертає ціле число, яке вказує на відносний порядок об'єктів 
 //people.Sort((p1, p2) => p1.Age.CompareTo(p2.Age)); // сортування списку людей за віком за допомогою лямбда-виразу, який порівнює вік двох людей
-people.Sort((p1, p2) => p2.Age.CompareTo(p1.Age)); // сортування списку людей за віком (за спаданням) за допомогою лямбда-виразу, який порівнює вік двох людей
+people.Sort((Person p1, Person p2) => p2.Age.CompareTo(p1.Age)); // сортування списку людей за віком (за спаданням) за допомогою лямбда-виразу, який порівнює вік двох людей
 Console.WriteLine("\n\n_____Sorted people by age");
 foreach(var person in people)
 {

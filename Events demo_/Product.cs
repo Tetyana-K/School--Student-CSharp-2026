@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Events_Demo;
 
 delegate void ProductHandler(Product p, string message); // 1. визначаємо тип делегата для події зміни ціни
-class Product
+class Product // Publisher - клас, який ініціює події
 {
     public event ProductHandler? PriceUp; // 2. визначили поле -подію(буде більш безпечний код) типу нашого делегату
     public event ProductHandler? PriceDown; // 2 визначили ще одну подію
