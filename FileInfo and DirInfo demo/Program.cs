@@ -2,8 +2,32 @@
 using System.Collections.Generic;
 using System.IO;
 
+//string path = "my.txt";
+//string fileContent = "Test line!\n";
+////File.WriteAllText(path, fileContent);
+////File.AppendAllText(path, "Second line\nThird line\n");
+
+//string[] words = { "program", "streams", "files" };
+////File.AppendAllLines(path, words);
+
+
+//if (File.Exists(path))
+//{
+//    Console.WriteLine($"File content:");
+//    Console.WriteLine(File.ReadAllText(path));
+//    Console.WriteLine($"\nFile content by line:");
+//    string [] lines = File.ReadAllLines(path);
+//    for (int i = 0; i < lines.Length; i++)
+//        Console.WriteLine($"{i+1} : '{lines[i]}'");
+//    //File.Move(path, @"d:\", true); // ???
+
+//}
+
+//File.Copy(path, @"D:\");
+
+
 Console.WriteLine($"Current  path : {Directory.GetCurrentDirectory()}");
-Directory.SetCurrentDirectory(@"D:\");// D:/     D:\\
+Directory.SetCurrentDirectory(@"D:\");// зміна поточної папки на D:\
 Console.WriteLine($"Current  path : {Directory.GetCurrentDirectory()}");
 
 string dirPath = "P-43";
@@ -20,7 +44,7 @@ else
 string fname;
 Console.WriteLine("\n\t\tEnter  name of file  : ");
 fname = Console.ReadLine()!;
-string pathFname = Path.Combine(dirPath, fname);
+string pathFname = Path.Combine(dirPath, fname); // dirPath\hello.txt
 if (File.Exists(pathFname))
 {
     Console.WriteLine($"File {pathFname} already  exist");
@@ -56,7 +80,7 @@ Console.WriteLine(File.ReadAllText(pathFname));
 
 string pathCopy = Path.Combine(dirPath, "COPY"); // створили  рядок з таким шляхом D:\P-43\COPY
 Directory.CreateDirectory(pathCopy);
-//File.Copy(pathFname, Path.Combine(pathCopy, fname)); // виняток, якщо  файл-копія вже існує
+File.Copy(pathFname, Path.Combine(pathCopy, fname)); // виняток, якщо  файл-копія вже існує
 //File.Copy(pathFname, Path.Combine(pathCopy, fname), true); //можна копіювати поверх  файлу копії
 //File.Move(pathFname, Path.Combine(pathCopy, fname)); // переміщення файлу, якщо  файл-копія вже існує, то виняток
 Console.ReadKey();
@@ -68,5 +92,5 @@ Console.WriteLine($"After  deleting  file {pathFname} Exist :: {fi.Exists}");
 Console.ReadKey();
 //Directory.Delete(dirPath); // виняток,  якщо папка не  пуста
 Directory.Delete(dirPath, true); // вилучення папки з  підпапками та файлами у ній
-//Thread.Sleep(2000); // затримка, щоб операційна система встигла видалити папку
+Thread.Sleep(2000); // затримка, щоб операційна система встигла видалити папку
 Console.WriteLine($"After  deleting  directory {dirPath} Exist :: {Directory.Exists(dirPath)} ");

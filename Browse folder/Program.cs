@@ -15,18 +15,19 @@ static void PrintFolder(string path)
         Console.WriteLine($"Folder {path} not found");
         return;
     }
-    //foreach (DirectoryInfo d in di.EnumerateDirectories())
+    //foreach (DirectoryInfo d in di.EnumerateDirectories()) // GetDirectories
     //{
 
     //    //Console.WriteLine($"{d.FullName}");
     //    Console.WriteLine($"{d.CreationTime, -20}{d.Name, -40} <DIR>");
     //}
+
     //foreach (FileInfo f in di.EnumerateFiles())
     //{
 
     //    Console.WriteLine($"{f.CreationTime, -20}{f.Name, -40} {f.Length}");
     //}
-    foreach (var f in di.EnumerateFileSystemInfos())
+    foreach (var f in di.EnumerateFileSystemInfos()) // перебираємо і файли і папки
     {
         string info = "<DIR>";
         if (!f.Attributes.HasFlag(FileAttributes.Directory))

@@ -2,11 +2,15 @@
 using System.IO;
 
 string path = "../../../my.txt"; // піднялися із  папки де exe у папку проекту
+Console.WriteLine($"Does file {path} exist :{File.Exists(path)}");
 CreateTxtFile(path);
+Console.WriteLine($"Does file {path} exist :{File.Exists(path)}");
 ShowFileFast(path);
 ShowFileByLine(path);
 ShowFileByChar(path);
 
+File.Delete(path); // видалення файлу по шляху
+Console.WriteLine($"Does file {path} exist :{File.Exists(path)}");
 
 static void ShowFileByChar(string path)
 {
