@@ -74,3 +74,5 @@ MatchEvaluator evaluator = match =>
 
 result = Regex.Replace(input, @"\d{3}-\d{3}-\d{4}", evaluator); // замінюємо всі телефонні номери на  (123) 456-7890
 Console.WriteLine($"After replace :\n{result}");
+
+Regex.IsMatch(result, pattern);

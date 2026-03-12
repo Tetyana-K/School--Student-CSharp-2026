@@ -28,14 +28,16 @@ namespace Linq_To_Objects
     {
         static void Main(string[] args)
         {
-            int[] a = { 1, 27, 2, 77, -157 };//, 3, 1, 1, 2, -1 };
-            int[] b = { 1, 2, 2, -1, 5, 7, 0 };
+            int[] a = { 1, 27, 2, 77, 50, -157 };//, 3, 1, 1, 2, -1 };
+            int[] b = { 1, 2, 2 , -1, 5, 7, 3 };
+
+            //var res = Array.FindAll(a, x => x % 2 == 0);
 
             // 1 спосіб - у вигляді запиту from el in a 
             // where дозволяє визначити умову відбору елементів
             // select -  оператор виконує проєкцію на колекцію, щоб отримати необхідні члени (частини чи комбінації) елементів
 
-
+           
             var even =  from el in a  
                         where el % 2 ==0 
                         select el;
@@ -52,11 +54,14 @@ namespace Linq_To_Objects
 
             var resultA = from f in food
                           where f.Contains('a')
-                          orderby f descending
+                          orderby f descending // впорядкування за спаданням
                           select f;
             Print(resultA, "Food with'a' sorted desc :");
 
-            var biggerThan10 = from x in a where x > 10 select x;
+            var biggerThan10 = 
+                from x in a 
+                where x > 10 && x < 20
+                select x;
             Console.WriteLine(string.Join("\t", biggerThan10));
 
             // 2 спосіб - методи розширення Where(), OrderBy(), Select()
@@ -71,14 +76,20 @@ namespace Linq_To_Objects
             Print(intersect, "Intersect a and b arrays");
             Print(dif, "Difference a an b arrays");
 
-            
             int sum = a.Sum();
             double avg = a.Average();
-            int product = a.Aggregate((x, y) => x * y);
+            int product = b.Aggregate((x, y) => x * y);
             int count = a.Count(x => x % 2 == 0);
+            Console.WriteLine($"\nSum in a {sum}");
+            Console.WriteLine($"Average in a {avg}");
+            Console.WriteLine($"Product in b {product}");
+            Console.WriteLine($"Count of even numbers in a {count}");
 
+
+            // сортуємо по спаданню елементи масиву b, пропускаємо 2 елементи і беремо 3 елементи
             var part = b.OrderByDescending(x => x).Skip(2).Take(3);
-            Console.WriteLine(string.Join("\t", part));
+            Print(part, "Part from #2 length 3");
+            
             Console.WriteLine(b.FirstOrDefault(x => x > 0));
 
             // 2  метод розширення  movies.Where(x=>x......)
@@ -128,7 +139,9 @@ namespace Linq_To_Objects
                                select m;
             Print(movieByGenre, $"Movies of genre");
 
-
+            int year = 1990;
+            var movieByYear = movies.Where(x => x.Year > year);//.ToList();
+            Print(movieByYear, $"Movie after {year}");
         }
         static void Print<T>(IEnumerable<T> list, string text = "")
         {
@@ -141,4 +154,5 @@ namespace Linq_To_Objects
         }
     }
 }
+//  знайти додатні елементи масиву 2-ма способами 1) from el in arr .... 2) arr.Where(....)
 
