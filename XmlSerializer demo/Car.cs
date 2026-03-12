@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace XmlSerializer_demo;
 
-// Xml serialzer
+// Xml serializer
 // 1) клас має бути відкритим
 // 2) клас має  містити явний к-р без  параметрів
 // 3) зможе серіалузвати ВІДКРИТІ поля та властивості
@@ -32,12 +32,12 @@ public class Engine
 
 public class Car
 {
-    private int id = -1; // приватні поля НЕ серіалізуються 
+    private int id = -1; // !!!! приватні поля НЕ серіалізуються 
 
-    //  [XmlIgnore()] // ігнорувати збереження цього property у xml
+     //[XmlIgnore()] // ігнорувати збереження цього property у xml
     //[XmlElement("Number")]
-    //[XmlAttribute("Number")]
-    //public int Id { get => id; set => id = value; }
+    [XmlAttribute("Number")]
+    public int Id { get => id; set => id = value; }
     private string brand = "Unknown";
     public Car()
         : this(0, "Nobrand", 1.0)

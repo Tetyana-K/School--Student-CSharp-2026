@@ -26,8 +26,6 @@ namespace Json_serializer_demo
     public class Car
     {
         private int id = -1;
-
-
         public int Id { get => id; set => id = value; }
         private string brand = "Unknown";
         public Car()

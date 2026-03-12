@@ -1,25 +1,26 @@
 ﻿using Json_serializer_demo;
-using Newtonsoft.Json;
-//using System.Text.Json;
+using Newtonsoft.Json; // через Nuget пакет Newtonsoft
+using System.Text.Json;
 using JsonText = System.Text.Json; // JsonText аліас простору імен System.Text.Json
 
-DemoJsonText();
+//DemoJsonText();
 
 // Demo  NewtonSoft
 Car ford = new Car(555, "Ford", 4.1);
 
-//DemoNewtonsoftSerializer(ford);
+DemoNewtonsoftSerializer(ford);
 
 static void DemoJsonText()
 {
     int[] arr = { 10, 20, 30, 40, 50 };
     string jsonArr = JsonText.JsonSerializer.Serialize(arr);
+    File.WriteAllText("../../../arr.json", jsonArr);
     Console.WriteLine($"Json from array :\n{jsonArr}");
 
     int[] darr = JsonText.JsonSerializer.Deserialize<int[]>(jsonArr);
     Console.WriteLine($"Deserialized array: {string.Join(" ", darr)}");
 
-    Car ford = new Car(333, "Audi", 3.2);
+    Car ford = new Car(333, "Ford", 3.2);
     string json = JsonText.JsonSerializer.Serialize<Car>(ford);
     Console.WriteLine("\n_________Car ---> JSON___________");
     Console.WriteLine(json);
@@ -35,7 +36,7 @@ static void DemoJsonText()
 
     SortedList<int, Car> sl = new SortedList<int, Car>
     {
-        [555] = ford,
+        [333] = ford,
         [200] = new Car(200, "Toyota", 4.2),
     };
 
@@ -57,9 +58,9 @@ static void DemoJsonText()
     }
 }
 
-static void DemoNewtonsoftSerializer(Car ford)
+static void DemoNewtonsoftSerializer(Car car)
 {
-    string json = JsonConvert.SerializeObject(ford);
+    string json = JsonConvert.SerializeObject(car);
     Console.WriteLine("_________Car ---> JSON___________");
     Console.WriteLine(json);
 

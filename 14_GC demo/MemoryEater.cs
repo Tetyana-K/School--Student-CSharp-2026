@@ -16,7 +16,7 @@ namespace _14_GC_demo
             arr = new int[size];
             Console.WriteLine($"Object # {Id} created");
         }
-        ~MemoryEater() // finalizer, 
+        ~MemoryEater() // finalizer, деструктор 
         {
             Console.WriteLine($"\t\tObject # {Id} finalized");
         }

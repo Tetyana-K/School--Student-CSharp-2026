@@ -155,6 +155,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json serializer demo", "Jso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Record demo", "Record demo\Record demo.csproj", "{87F76544-FB2B-40E7-B132-13BC0BAA45D6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Loggers", "Loggers", "{8548EDE8-CD5C-48E6-AF08-E906C767149E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog", "Serilog\Serilog.csproj", "{704C2DCB-00FE-41D1-BB55-2D0D61C4DCE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -405,6 +409,10 @@ Global
 		{87F76544-FB2B-40E7-B132-13BC0BAA45D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87F76544-FB2B-40E7-B132-13BC0BAA45D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87F76544-FB2B-40E7-B132-13BC0BAA45D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{704C2DCB-00FE-41D1-BB55-2D0D61C4DCE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704C2DCB-00FE-41D1-BB55-2D0D61C4DCE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704C2DCB-00FE-41D1-BB55-2D0D61C4DCE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704C2DCB-00FE-41D1-BB55-2D0D61C4DCE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -467,6 +475,7 @@ Global
 		{132B2A73-A416-456E-80D6-EE2896708078} = {676204C8-7E9F-4E49-9FEB-EB3E4F3D0E61}
 		{5A35F4DF-C333-4AD8-9A9F-9E5FFDA6FB89} = {55BCA958-BCA3-4EED-AE4F-12891AA85DEE}
 		{B091FE28-06B1-4D91-A8D9-6A757AF468F5} = {55BCA958-BCA3-4EED-AE4F-12891AA85DEE}
+		{704C2DCB-00FE-41D1-BB55-2D0D61C4DCE4} = {8548EDE8-CD5C-48E6-AF08-E906C767149E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1435751D-E8AB-4A42-AB36-FFB149A03197}
