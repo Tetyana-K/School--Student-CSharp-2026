@@ -4,3 +4,5 @@ using Adapter;
 Console.WriteLine("_______ADAPTER_________");
 ICoffeeMachine coffeeMachine = new CoffeMachine();
 coffeeMachine.MakeLatte();
+coffeeMachine.MakePureCoffe();
+
