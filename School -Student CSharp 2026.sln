@@ -169,6 +169,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DP Adapter", "DP Adapter\DP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DP Builder", "DP Builder\DP Builder.csproj", "{C48DF1B1-ABD8-45FA-BC97-6E963FE3FFC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DP 03  Abstract Factory", "DP 03  Abstract Factory\DP 03  Abstract Factory.csproj", "{5A6702FB-586E-4942-A85D-9A091074CEE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -439,6 +441,10 @@ Global
 		{C48DF1B1-ABD8-45FA-BC97-6E963FE3FFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C48DF1B1-ABD8-45FA-BC97-6E963FE3FFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C48DF1B1-ABD8-45FA-BC97-6E963FE3FFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A6702FB-586E-4942-A85D-9A091074CEE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6702FB-586E-4942-A85D-9A091074CEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6702FB-586E-4942-A85D-9A091074CEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6702FB-586E-4942-A85D-9A091074CEE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -506,6 +512,7 @@ Global
 		{4670DE47-3506-4036-9C55-A47D41C0C263} = {902FA1BC-F313-4FDD-9390-8EE55BA29D51}
 		{10083006-7FA0-41CA-891A-95BEFC43BE10} = {902FA1BC-F313-4FDD-9390-8EE55BA29D51}
 		{C48DF1B1-ABD8-45FA-BC97-6E963FE3FFC8} = {902FA1BC-F313-4FDD-9390-8EE55BA29D51}
+		{5A6702FB-586E-4942-A85D-9A091074CEE7} = {902FA1BC-F313-4FDD-9390-8EE55BA29D51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1435751D-E8AB-4A42-AB36-FFB149A03197}
