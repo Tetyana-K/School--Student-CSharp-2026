@@ -6,6 +6,7 @@ cat.MakeSound();
 cat.Sleep();
 
 Dog dog = new Dog("Sharik", 5, "Bulldog"); // помилка, НЕ МОЖНА створити об'єкт абстрактного класу
+
 dog.MakeSound();
 dog.Sleep();
 
